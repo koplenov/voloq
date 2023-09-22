@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &128636454 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4243388885714565317, guid: 6fc57f98b27a5744a8830f04e9eddaf6, type: 3}
-  m_PrefabInstance: {fileID: 316730714}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &316730714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -151,6 +146,10 @@ PrefabInstance:
       propertyPath: hands
       value: 
       objectReference: {fileID: 1210624634}
+    - target: {fileID: 4243388885714565369, guid: 6fc57f98b27a5744a8830f04e9eddaf6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4243388885714565370, guid: 6fc57f98b27a5744a8830f04e9eddaf6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -377,7 +376,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -549,7 +548,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1724,7 +1723,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2176,10 +2175,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: First Person Controller (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 6911553717111001000, guid: f5d9dd43293ba204ea8a90b4df65ad31, type: 3}
-      propertyPath: store
-      value: 
-      objectReference: {fileID: 128636454}
     - target: {fileID: 6911553717111001000, guid: f5d9dd43293ba204ea8a90b4df65ad31, type: 3}
       propertyPath: gunTypes
       value: 
