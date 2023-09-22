@@ -69,7 +69,6 @@ public class Movement : MonoBehaviour
             if (groundCheck.isGrounded == true) {rigidbody.velocity *= 0.9f;}
          
         }
-        
         GameUtils.SendAnimation(Client.nick,"animation",sakuraAnimator.GetInteger("animation"));
     }
 }

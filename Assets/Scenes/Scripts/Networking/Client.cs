@@ -12,6 +12,7 @@ using Utils;
 public class Client : Player
 {
     public static Client Instance;
+    public static bool IsConnected;
 
     public GameObject server;
     public Hands hands;
@@ -134,6 +135,11 @@ public class Client : Player
                     {
                         Debug.Log("GGGGG23");
                         Debug.Log(animationData);
+                        Debug.Log(animationData.nick);
+                        Debug.Log(animationData.animation);
+                        Debug.Log(animationData.id);
+                        Debug.Log(dataPlayers);
+                        Debug.Log(dataPlayers[animationData.nick].GetType());
                         ((NetPlayerData)dataPlayers[animationData.nick]).UpdateAnimation(animationData);
                     }
 
@@ -264,6 +270,7 @@ public class Client : Player
     {
         try
         {
+            Client.IsConnected = true;
             clientSocket.BeginSendTo(data, 0, data.Length,
                 SocketFlags.None, epServer, OnSend, null);
         }

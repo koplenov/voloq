@@ -20,6 +20,11 @@ namespace Utils
         
         public static void SendAnimation(string nick, string animation, int id)
         {
+            if (!Client.IsConnected)
+            {
+                return;
+            }
+                
             AnimationData netPlayer = new AnimationData(nick, animation, id);
             
             // content bytes
