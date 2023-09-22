@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 public class Movement : MonoBehaviour
 {
@@ -25,13 +26,17 @@ public class Movement : MonoBehaviour
 
     GroundCheck groundCheck;
 
+
+    private string nick;
+
     void Awake()
     {
+        nick = PlayerPrefs.GetString("nick", Environment.UserName);
+        
         rigidbody = GetComponent<Rigidbody>();
         groundCheck = GetComponentInChildren<GroundCheck>();
     }
-
-
+    
     void FixedUpdate()
     {
         move = Vector3.zero;
@@ -69,5 +74,7 @@ public class Movement : MonoBehaviour
             if (groundCheck.isGrounded == true) {rigidbody.velocity *= 0.9f;}
          
         }
+        
+        GameUtils.SendAnimation(nick,"animation",sakuraAnimator.GetInteger("animation"));
     }
 }

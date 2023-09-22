@@ -17,9 +17,7 @@ public class Client : Player
     public Hands hands;
 
     private Thread udpClientThread;
-
-    private Animator _sakuraAnimator;
-
+    
     new void Awake()
     {
         base.Awake();
@@ -37,7 +35,6 @@ public class Client : Player
     void FixedUpdate()
     {
         FixedUpdateUdp();
-        GameUtils.SendAnimation(nick,"animation",_sakuraAnimator.GetInteger("animation"));
     }
 
     private void Update()
