@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    // animator
+    public Animator sakuraAnimator;
+    //
+    
     public Vector3 move = Vector3.zero;
     new Rigidbody rigidbody;
     public float speed = 8;
@@ -33,6 +37,9 @@ public class Movement : MonoBehaviour
         move = Vector3.zero;
         walking = canRun && (Input.GetKey(forwardRunKey) || Input.GetKey(backRunKey) || Input.GetKey(leftRunKey) ||
                              Input.GetKey(rightRunKey));
+        
+        sakuraAnimator.SetInteger("animation", walking ? 10 :1);
+        
         if (walking)
         {
             targetMovingSpeed = Input.GetKey(speedKey) ? runSpeed : speed;
