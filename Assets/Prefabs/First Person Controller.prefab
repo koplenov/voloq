@@ -166,12 +166,12 @@ MonoBehaviour:
   m_margin: {x: 8.899595, y: 2.46456, z: 8.697999, w: 1.7579389}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 5723316549727457257}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 5723316549727457257}
+  m_maskType: 0
 --- !u!1 &832149484520855056
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +820,6 @@ GameObject:
   - component: {fileID: 2673238904819390806}
   - component: {fileID: 2638966753922722354}
   - component: {fileID: 9112081527528167326}
-  - component: {fileID: 1251877669}
   m_Layer: 0
   m_Name: Ground Check
   m_TagString: Untagged
@@ -866,21 +865,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.038092, y: 0.03464675, z: 1}
-  m_Center: {x: 0.002721012, y: -0.01305568, z: 0}
---- !u!65 &1251877669
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2669752812033588648}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0380918, y: 0.03464675, z: 1}
-  m_Center: {x: 0.0027210116, y: -0.013055682, z: 0}
+  m_Size: {x: 1.0380918, y: 0.068822384, z: 1}
+  m_Center: {x: 0.002721012, y: 0.004032135, z: -1.0390257e-11}
 --- !u!1 &2669985629277073560
 GameObject:
   m_ObjectHideFlags: 0
