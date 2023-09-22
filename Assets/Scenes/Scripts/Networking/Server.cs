@@ -227,8 +227,6 @@ public class NewServer
                     break;
                 
                 case ChanelID.AnimationData:
-                    Debug.Log("AnimationData");
-
                     foreach (ClientInfo clientInfo in clientList)
                     {
                         serverSocket.BeginSendTo(byteData, 0, bytes, SocketFlags.None,

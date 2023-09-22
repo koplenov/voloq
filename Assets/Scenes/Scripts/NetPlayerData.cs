@@ -16,6 +16,8 @@ public class NetPlayerData : MonoBehaviour
 
     public void UpdateAnimation(AnimationData animationData)
     {
+        Debug.Log(animationData.animation);
+        Debug.Log(animationData.id);
         sakuraAnimator.SetInteger(animationData.animation, animationData.id);
     }
 }
