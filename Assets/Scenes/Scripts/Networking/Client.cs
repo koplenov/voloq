@@ -37,8 +37,7 @@ public class Client : Player
     void FixedUpdate()
     {
         FixedUpdateUdp();
-        //Animator.
-        //GameUtils.SendAnimation("","",1);
+        GameUtils.SendAnimation(nick,"animation",_sakuraAnimator.GetInteger("animation"));
     }
 
     private void Update()
@@ -127,6 +126,16 @@ public class Client : Player
                                 continue;
                             playerTable[np.nick] = np;
                         }
+                    }
+
+                    break;
+                case ChanelID.Animation:
+
+                    AnimationData animationData = Data.ByteArrayToObject(packet.data) as AnimationData;
+
+                    lock (playerTable)
+                    {
+                            ((NetPlayerData)dataPlayers[animationData.nick]).UpdateAnimation(animationData);
                     }
 
                     break;

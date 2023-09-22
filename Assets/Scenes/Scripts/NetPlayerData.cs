@@ -9,18 +9,12 @@ public class NetPlayerData : MonoBehaviour
 
     public void UpdatePlayer(NetPlayer netPlayer)
     {
-        var diff = netPlayer.Position - transform.position;
-        Debug.Log(diff);
-        //if (diff.x < 0.4)
-        //{
-        //   Debug.Log("вперед");
-        //}
-        //if (diff.x > -0.4)
-        //{
-        //   Debug.Log("назад");
-        //}
-        
         transform.position = netPlayer.Position;
         transform.rotation = Quaternion.Euler(netPlayer.Rotation);
+    }
+
+    public void UpdateAnimation(AnimationData animationData)
+    {
+        Debug.Log(animationData.id);
     }
 }
