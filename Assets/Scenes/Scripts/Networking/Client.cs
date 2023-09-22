@@ -126,12 +126,14 @@ public class Client : Player
                     }
 
                     break;
-                case ChanelID.Animation:
+                case ChanelID.AnimationData:
 
                     AnimationData animationData = Data.ByteArrayToObject(packet.data) as AnimationData;
 
                     if (animationData.nick != Client.nick)
                     {
+                        Debug.Log("GGGGG23");
+                        Debug.Log(animationData);
                         ((NetPlayerData)dataPlayers[animationData.nick]).UpdateAnimation(animationData);
                     }
 

@@ -226,7 +226,7 @@ public class NewServer
 
                     break;
                 
-                case ChanelID.Animation:
+                case ChanelID.AnimationData:
                     
                     foreach (ClientInfo clientInfo in clientList)
                     {

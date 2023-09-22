@@ -14,8 +14,7 @@ namespace Networking
         public const int ChangeWeapon = 7;
         public const int Damage = 5;
         public const int Respawn = 8;
-        public const int Animation = 69;
-
+        public const int AnimationData = 9;
     }
 
     #endregion
