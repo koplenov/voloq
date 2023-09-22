@@ -19,6 +19,4 @@ public struct CardData
     public string description;
     public string name;
     public Sprite image;
-    
-    
 }
