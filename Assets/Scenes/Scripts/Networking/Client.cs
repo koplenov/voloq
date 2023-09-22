@@ -133,14 +133,14 @@ public class Client : Player
 
                     if (animationData.nick != Client.nick)
                     {
-                        Debug.Log("GGGGG23");
-                        Debug.Log(animationData);
-                        Debug.Log(animationData.nick);
-                        Debug.Log(animationData.animation);
-                        Debug.Log(animationData.id);
-                        Debug.Log(dataPlayers);
-                        Debug.Log(dataPlayers[animationData.nick].GetType());
-                        ((NetPlayerData)dataPlayers[animationData.nick]).UpdateAnimation(animationData);
+                        try
+                        {
+                            Debug.Log(dataPlayers[animationData.nick].GetType());
+                            ((NetPlayerData)dataPlayers[animationData.nick]).UpdateAnimation(animationData);
+                        }
+                        catch (Exception e)
+                        {
+                        }
                     }
 
                     break;
