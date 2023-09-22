@@ -111,9 +111,9 @@ namespace Networking
     [Serializable]
     public class AnimationData
     {
-        [SerializeField] public string nick = String.Empty;
-        [SerializeField] public string animation = String.Empty;
-        [SerializeField] public int id = 0;
+        public string nick = String.Empty;
+        public string animation = String.Empty;
+        public int id = 0;
 
         public AnimationData(string nick, string animation, int id)
         {
