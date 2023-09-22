@@ -14,6 +14,8 @@ namespace Networking
         public const int ChangeWeapon = 7;
         public const int Damage = 5;
         public const int Respawn = 8;
+        public const int Animation = 69;
+
     }
 
     #endregion
@@ -103,6 +105,21 @@ namespace Networking
             this.analDamager = analDamager;
             this.anal = anal;
             this.damage = damage;
+        }
+    }
+    
+    [Serializable]
+    public class AnimationData
+    {
+        [SerializeField] public string nick = String.Empty;
+        [SerializeField] public string animation = String.Empty;
+        [SerializeField] public int id = 0;
+
+        public AnimationData(string nick, string animation, int id)
+        {
+            this.nick = nick;
+            this.animation = animation;
+            this.id = id;
         }
     }
 

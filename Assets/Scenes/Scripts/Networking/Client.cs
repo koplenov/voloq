@@ -18,6 +18,8 @@ public class Client : Player
 
     private Thread udpClientThread;
 
+    private Animator _sakuraAnimator;
+
     new void Awake()
     {
         base.Awake();
@@ -35,6 +37,8 @@ public class Client : Player
     void FixedUpdate()
     {
         FixedUpdateUdp();
+        //Animator.
+        //GameUtils.SendAnimation("","",1);
     }
 
     private void Update()
@@ -296,9 +300,10 @@ public class Client : Player
                 {
                     if (initedPlayers.ContainsKey(netPlayer.nick))
                     {
-                        ((GameObject) initedPlayers[netPlayer.nick]).transform.position = netPlayer.Position;
-                        ((GameObject) initedPlayers[netPlayer.nick]).transform.rotation =
-                            Quaternion.Euler(netPlayer.Rotation);
+                        // ((GameObject) initedPlayers[netPlayer.nick]).transform.position = netPlayer.Position;
+                        // ((GameObject) initedPlayers[netPlayer.nick]).transform.rotation =
+                           // Quaternion.Euler(netPlayer.Rotation);
+                           ((NetPlayerData)dataPlayers[netPlayer.nick]).UpdatePlayer(netPlayer);
                     }
                     else
                     {
