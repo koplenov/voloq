@@ -130,9 +130,9 @@ public class Client : Player
 
                     AnimationData animationData = Data.ByteArrayToObject(packet.data) as AnimationData;
 
-                    lock (playerTable)
+                    if (animationData.nick != Client.nick)
                     {
-                            ((NetPlayerData)dataPlayers[animationData.nick]).UpdateAnimation(animationData);
+                        ((NetPlayerData)dataPlayers[animationData.nick]).UpdateAnimation(animationData);
                     }
 
                     break;

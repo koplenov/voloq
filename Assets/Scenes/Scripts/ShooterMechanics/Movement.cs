@@ -26,13 +26,8 @@ public class Movement : MonoBehaviour
 
     GroundCheck groundCheck;
 
-
-    private string nick;
-
     void Awake()
     {
-        nick = PlayerPrefs.GetString("nick", Environment.UserName);
-        
         rigidbody = GetComponent<Rigidbody>();
         groundCheck = GetComponentInChildren<GroundCheck>();
     }
@@ -75,6 +70,6 @@ public class Movement : MonoBehaviour
          
         }
         
-        GameUtils.SendAnimation(nick,"animation",sakuraAnimator.GetInteger("animation"));
+        GameUtils.SendAnimation(Client.nick,"animation",sakuraAnimator.GetInteger("animation"));
     }
 }
