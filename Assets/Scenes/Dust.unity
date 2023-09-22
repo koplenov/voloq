@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1912,6 +1912,24 @@ MonoBehaviour:
   pauseMenu: {fileID: 1676072047}
   store: {fileID: 128636454}
   gunTypes: {fileID: 1927288666}
+--- !u!1 &1251877666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2669752812033588648, guid: f5d9dd43293ba204ea8a90b4df65ad31, type: 3}
+  m_PrefabInstance: {fileID: 1579712524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1251877669
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251877666}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0380918, y: 0.03464675, z: 1}
+  m_Center: {x: 0.0027210116, y: -0.013055682, z: 0}
 --- !u!4 &1255996122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3539191359478314756, guid: ec2ba8c6c8f69f4418be4409155ce190, type: 3}
@@ -1953,7 +1971,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.9999695, y: 155}
+  m_AnchoredPosition: {x: 3, y: 155}
   m_SizeDelta: {x: -503, y: -302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1460761517
@@ -2164,7 +2182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2638953936934278998, guid: f5d9dd43293ba204ea8a90b4df65ad31, type: 3}
       propertyPath: jumpStrength
-      value: 120
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2668179546645751962, guid: f5d9dd43293ba204ea8a90b4df65ad31, type: 3}
       propertyPath: m_RootOrder
