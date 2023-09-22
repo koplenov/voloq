@@ -656,6 +656,7 @@ MonoBehaviour:
   nick: 
   botHands: {fileID: 5956292342830884279}
   botState: {fileID: 1489024790}
+  sakuraAnimator: {fileID: 8419776067786802534}
 --- !u!114 &1489024790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,26 +912,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c05a5e356d74874591e072a9ff22c57, type: 3}
+--- !u!95 &8419776067786802534 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95872929106889442, guid: 2c05a5e356d74874591e072a9ff22c57, type: 3}
+  m_PrefabInstance: {fileID: 8470591755270131588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8467828168840980652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4031395436078888, guid: 2c05a5e356d74874591e072a9ff22c57, type: 3}
   m_PrefabInstance: {fileID: 8470591755270131588}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8469346650295434528 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1336685773877924, guid: 2c05a5e356d74874591e072a9ff22c57, type: 3}
-  m_PrefabInstance: {fileID: 8470591755270131588}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6952756483404902567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8469346650295434528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43e957ddc3d4342f3b07e79a33513999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sakureAnimator: {fileID: 0}

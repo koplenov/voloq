@@ -6,6 +6,7 @@ public class NetPlayerData : MonoBehaviour
     public string nick;
     public BotHands botHands;
     public BotState botState;
+    public Animator sakuraAnimator;
 
     public void UpdatePlayer(NetPlayer netPlayer)
     {
@@ -15,6 +16,6 @@ public class NetPlayerData : MonoBehaviour
 
     public void UpdateAnimation(AnimationData animationData)
     {
-        Debug.Log(animationData.id);
+        sakuraAnimator.SetInteger(animationData.animation, animationData.id);
     }
 }
