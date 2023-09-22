@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card : MonoBehaviour
+public abstract class Card : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private CardData cardData;
+    public abstract void Spell();
 
-    // Update is called once per frame
-    void Update()
+    public CardData GetCardData()
     {
-        
+        return cardData;
     }
+}
+
+public struct CardData
+{
+    public int manaCost;
+    public string description;
+    public string name;
+    public Sprite image;
+    
+    
 }
