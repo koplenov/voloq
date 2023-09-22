@@ -134,7 +134,13 @@ public class Client : Player
                     {
                         try
                         {
-                            ((NetPlayerData)dataPlayers[animationData.nick]).UpdateAnimation(animationData);
+                            MainThreadBridge.DoInMainThread(() =>
+                            {
+                                lock (playerTable)
+                                {
+                                    ((NetPlayerData)dataPlayers[animationData.nick]).UpdateAnimation(animationData);
+                                }
+                            });
                         }
                         catch (Exception e)
                         {
