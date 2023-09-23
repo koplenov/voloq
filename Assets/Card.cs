@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Unity.Mathematics;
 using UnityEngine.PlayerLoop;
+using UnityEngine.ProBuilder.Shapes;
 using Utils;
+using Sprite = UnityEngine.Sprite;
 
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Card : MonoBehaviour
@@ -15,10 +18,6 @@ public abstract class Card : MonoBehaviour
     [SerializeField] protected Rigidbody rigidBody;
     Vector3 lastFramePosition = Vector3.zero;
     [SerializeField] private LayerMask enemyLayerMask;
-    private void OnEnable()
-    {
-        lastFramePosition = transform.position;
-    }
 
     public virtual void Spell()
     {
@@ -50,19 +49,17 @@ public abstract class Card : MonoBehaviour
                 if (hit.collider.CompareTag("NetPlayer"))
                 {
                     NetPlayerData netData = hit.collider.GetComponent<NetPlayerData>();
-                    GameUtils.SendDamage(Client.nick,netData.nick,(cardData.damage));
+                    Debug.Log("Попал в " + netData.nick);
+                    GameUtils.SendDamage(Client.nick,netData.nick,cardData.damage);
                     netData.botState.ApplyDamage(cardData.damage);
                     
                 }
             }
         }
-    }
-    
-    private void LateUpdate()
-    {
         lastFramePosition = transform.position;
     }
 }
+
 [Serializable]
 public struct CardData
 {
