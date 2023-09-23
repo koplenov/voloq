@@ -177,8 +177,9 @@ public class Client : Player
 
                     SyncTransformData[] syncObjects = Data.ByteArrayToObject(packet.data) as SyncTransformData[];
 
-                    lock (SyncObjects)
+                    lock (_cachedSyncGroup)
                     {
+                        _cachedSyncGroup = syncObjects;
                     }
 
                     break;

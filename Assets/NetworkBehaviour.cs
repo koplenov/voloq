@@ -14,6 +14,7 @@ public class NetworkBehaviour : MonoBehaviour
 
     public void UpdateTransform(SyncTransformData syncTransformData)
     {
+        Debug.Log(syncTransformData.Position);
         transform.position = syncTransformData.Position;
         transform.rotation = Quaternion.Euler(syncTransformData.Rotation);
     }
