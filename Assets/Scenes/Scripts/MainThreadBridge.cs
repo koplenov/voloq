@@ -13,9 +13,12 @@ public class MainThreadBridge : MonoBehaviour
 
     void FixedUpdate()
     {
-        while (eventsToRaise.Any())
+        lock (Instance.eventsToRaise)
         {
-            eventsToRaise.Dequeue().Invoke();
+            while (eventsToRaise.Any())
+            {
+                eventsToRaise.Dequeue().Invoke();
+            }
         }
     }
 
