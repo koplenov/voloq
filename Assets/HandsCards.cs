@@ -8,6 +8,7 @@ public class HandsCards : MonoBehaviour
     [SerializeField] private int maxHand = 5;
     [SerializeField] private List<Card> deka = new List<Card>();
     
+
     public bool AddCard(Card card)
     {
         if (deka.Count < maxHand)

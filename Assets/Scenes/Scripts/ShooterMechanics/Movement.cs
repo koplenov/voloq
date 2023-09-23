@@ -25,12 +25,11 @@ public class Movement : MonoBehaviour
     public KeyCode speedKey = KeyCode.LeftShift;
 
     private bool isRunning = false;
-    GroundCheck groundCheck;
+    [SerializeField] private GroundCheck groundCheck;
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
-        groundCheck = GetComponentInChildren<GroundCheck>();
     }
     
     void FixedUpdate()
@@ -38,8 +37,8 @@ public class Movement : MonoBehaviour
         move = Vector3.zero;
         walking = canRun && (Input.GetKey(forwardRunKey) || Input.GetKey(backRunKey) || Input.GetKey(leftRunKey) ||
                              Input.GetKey(rightRunKey));
-        
-       
+
+
         
         if (walking)
         {
@@ -55,32 +54,66 @@ public class Movement : MonoBehaviour
             if (Input.GetKey(forwardRunKey))
             {
                 move += Vector3.forward * targetMovingSpeed;
-                sakuraAnimator.SetInteger("animation", isRunning? 43 : 10);
+                
+                if (groundCheck.isGrounded)
+                {
+                    sakuraAnimator.SetInteger("animation", isRunning? 43 : 10);
+                }
+                else
+                {
+                    sakuraAnimator.SetInteger("animation", 13);
+                }
+                
                 
             }
             if (Input.GetKey(backRunKey))
             {
                 move += Vector3.back * targetMovingSpeed;
                 sakuraAnimator.SetInteger("animation", isRunning? 45 : 41);
+                if (groundCheck.isGrounded)
+                {
+                    sakuraAnimator.SetInteger("animation", isRunning? 43 : 10);
+                }
+                else
+                {
+                    sakuraAnimator.SetInteger("animation", 13);
+                }
             }
 
             if (Input.GetKey(leftRunKey))
             {
                 move += Vector3.left * targetMovingSpeed;
                 sakuraAnimator.SetInteger("animation", isRunning? 42 :11);
+                if (groundCheck.isGrounded)
+                {
+                    sakuraAnimator.SetInteger("animation", isRunning? 43 : 10);
+                }
+                else
+                {
+                    sakuraAnimator.SetInteger("animation", 13);
+                }
             }
 
             if (Input.GetKey(rightRunKey))
             {
                 move += Vector3.right * targetMovingSpeed;
                 sakuraAnimator.SetInteger("animation", isRunning?44:12);
+                if (groundCheck.isGrounded)
+                {
+                    sakuraAnimator.SetInteger("animation", isRunning? 43 : 10);
+                }
+                else
+                {
+                    sakuraAnimator.SetInteger("animation", 13);
+                }
             }
             
             rigidbody.velocity = transform.rotation * new Vector3(move.x, rigidbody.velocity.y, move.z);
         }
         else
         {
-            sakuraAnimator.SetInteger("animation", 1);
+            
+            sakuraAnimator.SetInteger("animation",  groundCheck.isGrounded ? 1 : 13);
             if (groundCheck.isGrounded == true) {rigidbody.velocity *= 0.9f;}
          
         }
