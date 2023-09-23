@@ -25,6 +25,6 @@ public class CardShoot : MonoBehaviour
 
     private Vector3 GetCardEndPoint()
     {
-        
+        return Vector3.zero;
     }
 }
