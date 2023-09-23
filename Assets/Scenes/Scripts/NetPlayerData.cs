@@ -10,7 +10,8 @@ public class NetPlayerData : MonoBehaviour
 
     public void UpdatePlayer(NetPlayer netPlayer)
     {
-        transform.position = netPlayer.Position;
+        // transform.position = netPlayer.Position;
+        transform.position = Vector3.Slerp(transform.position, netPlayer.Position, Time.fixedDeltaTime * 5);
         transform.rotation = Quaternion.Euler(netPlayer.Rotation);
     }
 

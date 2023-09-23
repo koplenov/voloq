@@ -14,7 +14,8 @@ public class NetworkBehaviour : MonoBehaviour
 
     public void UpdateTransform(SyncTransformData syncTransformData)
     {
-        transform.position = syncTransformData.Position;
+        // transform.position = syncTransformData.Position;
+        transform.position = Vector3.Slerp(transform.position, syncTransformData.Position, Time.fixedDeltaTime * 5);
         transform.rotation = Quaternion.Euler(syncTransformData.Rotation);
     }
 }
