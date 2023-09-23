@@ -82,7 +82,7 @@ public class controller : MonoBehaviour
 				{
 					rb.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
 					anim.SetInteger("Jump", 1);
-					GameUtils.SendAnimation(Client.nick, "jump", 1);
+					GameUtils.SendAnimation(Client.nick, "Jump", 1);
 				}
 			}
 		}
@@ -124,7 +124,7 @@ public class controller : MonoBehaviour
 					}
 				}
 				anim.SetInteger("Jump", 0);
-				GameUtils.SendAnimation(Client.nick, "jump", 1);
+				GameUtils.SendAnimation(Client.nick, "Jump", 1);
 			}
 		}
 		
