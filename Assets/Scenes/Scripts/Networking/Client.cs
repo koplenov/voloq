@@ -37,7 +37,10 @@ public class Client : Player
     void FixedUpdate()
     {
         FixedUpdateUdp();
-        FixedUpdateSyncGroup();
+        if (Client.IsServer)
+        {
+            FixedUpdateSyncGroup();
+        }
     }
 
     private SyncTransformData[] _cachedSyncGroup = Array.Empty<SyncTransformData>();
@@ -63,7 +66,10 @@ public class Client : Player
     private void Update()
     {
         UpdateUdp();
-        ApplyFixedUpdateSyncGroup();
+        if (!Client.IsServer)
+        {
+            ApplyFixedUpdateSyncGroup();
+        }
     }
 
     private void ApplyFixedUpdateSyncGroup()
