@@ -5,18 +5,30 @@ using System.Net.Sockets;
 using Networking;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Utils;
 using Network = Utils.Network;
 
 public class ShowCursor : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public GameObject gunTypes;
+    [SerializeField] private Button resume;
+    [SerializeField] private Button changeServer;
+    [SerializeField] private Button quit;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        resume.onClick.AddListener(Resume);
+        changeServer.onClick.AddListener(ChangeServer);
+        quit.onClick.AddListener(Quit);
+    }
+
     private void Start()
     {
-        Cursor.visible = false;
+       Cursor.visible = false;
+       pauseMenu.SetActive(false);
+       
     }
 
     // Update is called once per frame
@@ -26,14 +38,8 @@ public class ShowCursor : MonoBehaviour
         {
             Cursor.visible = !Cursor.visible;
             Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
-           
+            
             pauseMenu.SetActive(!pauseMenu.activeSelf);
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            Cursor.visible = !Cursor.visible;
-            Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
-            gunTypes.SetActive(!gunTypes.activeSelf);
         }
     }
 
