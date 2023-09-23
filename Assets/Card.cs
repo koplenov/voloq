@@ -40,9 +40,9 @@ public abstract class Card : MonoBehaviour
             NetPlayerData netData = other.GetComponent<NetPlayerData>();
             GameUtils.SendDamage(Client.nick,netData.nick,(cardData.damage));
             netData.botState.ApplyDamage(cardData.damage);
-            Debug.Log("Fired");
+           
         }
-                
+        print(other.name);
         
     }
 }
