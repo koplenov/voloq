@@ -27,7 +27,7 @@ public class CardShoot : MonoBehaviour
         }
     }
 
-    private Card CreateShootCard()
+    public Card CreateShootCard()
     {
         return Instantiate(prefab, spawnPoint.position, Quaternion.identity);
     }
