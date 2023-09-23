@@ -118,5 +118,6 @@ public class Movement : MonoBehaviour
          
         }
         GameUtils.SendAnimation(Client.nick,"animation",sakuraAnimator.GetInteger("animation"));
+        GameUtils.SendAnimation(Client.nick,"jump",sakuraAnimator.GetInteger("jump"));
     }
 }
