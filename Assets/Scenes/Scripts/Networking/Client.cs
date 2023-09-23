@@ -202,6 +202,24 @@ public class Client : Player
                     }
 
                     break;
+                case ChanelID.CastSpell:
+
+                    CastSpellData castSpellData = Data.ByteArrayToObject(packet.data) as CastSpellData;
+                    MainThreadBridge.DoInMainThread(() =>
+                    {
+                        try
+                        {
+                            RuntimeContext.Instance.CastSpell(castSpellData);
+                        }
+                        catch (Exception e)
+                        {
+                            Debug.Log("блд)");
+                            Debug.Log(e.Message);
+                        }
+                    });
+
+
+                    break;
                 case ChanelID.ChangeWeapon:
 
                     ChangeWeapon changeWeapon = (ChangeWeapon) Data.ByteArrayToObject(packet.data);

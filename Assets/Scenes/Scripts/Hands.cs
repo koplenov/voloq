@@ -86,6 +86,8 @@ public class Hands : MonoBehaviour
                     netData.botState.ApplyDamage(damage);
                     Debug.Log("Fired");
                 }
+                
+                GameUtils.SendCastSpell(Client.nick,"spell spell", Vector3.forward, transform.position);
             }
         }
 

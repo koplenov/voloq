@@ -5,6 +5,7 @@
 //
 using UnityEngine;
 using System.Collections;
+using Utils;
 
 
 [RequireComponent(typeof (Animator))]
@@ -80,7 +81,8 @@ public class controller : MonoBehaviour
 				if(!anim.IsInTransition(0))
 				{
 					rb.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
-					anim.SetBool("Jump", true);
+					anim.SetInteger("Jump", 1);
+					GameUtils.SendAnimation(Client.nick, "jump", 1);
 				}
 			}
 		}
@@ -121,7 +123,8 @@ public class controller : MonoBehaviour
 						}
 					}
 				}
-				anim.SetBool("Jump", false);
+				anim.SetInteger("Jump", 0);
+				GameUtils.SendAnimation(Client.nick, "jump", 1);
 			}
 		}
 		

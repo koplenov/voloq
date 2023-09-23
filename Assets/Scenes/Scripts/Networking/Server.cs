@@ -191,6 +191,19 @@ public class NewServer
                     }
 
                     break;
+                case ChanelID.CastSpell:
+                    
+                    Debug.Log("каст спела!");
+                    
+                    foreach (ClientInfo clientInfo in clientList)
+                    {
+                        serverSocket.BeginSendTo(byteData, 0, bytes, SocketFlags.None,
+                            clientInfo.endpoint,
+                            OnSend, clientInfo.endpoint);
+                    }
+
+                    break;
+                
                 case ChanelID.ChangeWeapon:
                     
                     Debug.Log("смена на сервере");

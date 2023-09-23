@@ -16,6 +16,7 @@ namespace Networking
         public const int Respawn = 8;
         public const int AnimationData = 9;
         public const int SyncGroup = 11;
+        public const int CastSpell = 12;
     }
 
     #endregion
@@ -105,6 +106,44 @@ namespace Networking
             this.analDamager = analDamager;
             this.anal = anal;
             this.damage = damage;
+        }
+    }
+    
+    [Serializable]
+    public class CastSpellData
+    {
+        public string nick = String.Empty;
+        public string spellName = String.Empty;
+        public SVector direction = new SVector(Vector3.zero);
+        public SVector position = new SVector(Vector3.zero);
+        public CastSpellData(string nick, string spellName, Vector3 direction, Vector3 position)
+        {
+            this.nick = nick;
+            this.spellName = spellName;
+            this.Direction = direction;
+            this.Position = position;
+        }
+        
+        public Vector3 Direction
+        {
+            get => direction.Vector3;
+            set
+            {
+                direction.x = value.x;
+                direction.y = value.y;
+                direction.z = value.z;
+            }
+        }
+
+        public Vector3 Position
+        {
+            get => position.Vector3;
+            set
+            {
+                position.x = value.x;
+                position.y = value.y;
+                position.z = value.z;
+            }
         }
     }
     

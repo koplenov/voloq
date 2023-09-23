@@ -33,30 +33,18 @@ namespace Utils
             Network.SendUdpData(packetBytes);
         }
         
-        public static void SendSyncGroup(ref NetworkBehaviour[] objects)
+        public static void SendCastSpell(string nick, string spellName, Vector3 direction, Vector3 position)
         {
-            SyncTransformData[] serialize = new SyncTransformData[objects.Length];
-            for (var i = 0; i < objects.Length; i++)
-            {
-                serialize[i] = new SyncTransformData(objects[i]);
-            }
-            
-            foreach (var obj in objects)
-            {
-                // new SyncTransformData(obj);
-                
-            }
-            
-            // SyncPositionGroup netPlayer = new SyncPositionGroup(nick, animation, id);
+            CastSpellData netPlayer = new CastSpellData(nick, spellName, direction, position);
             
             // content bytes
-            // byte[] testByted = Data.ObjectToByteArray(netPlayer);
+            byte[] testByted = Data.ObjectToByteArray(netPlayer);
 
             // bytes to send or bytes from server
-            // byte[] packetBytes = Packer.CombinePacket(ChanelID.AnimationData, testByted);
+            byte[] packetBytes = Packer.CombinePacket(ChanelID.CastSpell, testByted);
             
             // simple send bytes to server
-            // Network.SendUdpData(packetBytes);
+            Network.SendUdpData(packetBytes);
         }
     }
 }
