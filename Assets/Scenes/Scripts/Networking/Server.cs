@@ -226,6 +226,16 @@ public class NewServer
 
                     break;
                 
+                case ChanelID.SyncGroup:
+                    foreach (ClientInfo clientInfo in clientList)
+                    {
+                        serverSocket.BeginSendTo(byteData, 0, bytes, SocketFlags.None,
+                            clientInfo.endpoint,
+                            OnSend, clientInfo.endpoint);
+                    }
+
+                    break;
+                
                 case ChanelID.AnimationData:
                     foreach (ClientInfo clientInfo in clientList)
                     {

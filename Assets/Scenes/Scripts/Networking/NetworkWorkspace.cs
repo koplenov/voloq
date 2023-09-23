@@ -15,6 +15,7 @@ namespace Networking
         public const int Damage = 5;
         public const int Respawn = 8;
         public const int AnimationData = 9;
+        public const int SyncGroup = 11;
     }
 
     #endregion
@@ -120,6 +121,59 @@ namespace Networking
             this.animation = animation;
             this.id = id;
         }
+    }
+    
+    [Serializable]
+    public class SyncTransformData
+    {
+        public SyncTransformData(string guid, Vector3 position, Vector3 rotation)
+        {
+            this.guid = guid;
+            this.Position = position;
+            this.Rotation = rotation;
+        }
+
+        public SyncTransformData(NetworkBehaviour transform)
+        {
+            this.guid = transform.guid;
+            this.Position = transform.transform.position;
+            this.Rotation = transform.transform.rotation.eulerAngles;
+        }
+
+        public Vector3 Rotation
+        {
+            get => rotation.Vector3;
+            set
+            {
+                rotation.x = value.x;
+                rotation.y = value.y;
+                rotation.z = value.z;
+            }
+        }
+
+        public Vector3 Position
+        {
+            get => position.Vector3;
+            set
+            {
+                position.x = value.x;
+                position.y = value.y;
+                position.z = value.z;
+            }
+        }
+
+        public Transform Transform
+        {
+            set
+            {
+                Position = value.position;
+                Rotation = value.rotation.eulerAngles;
+            }
+        }
+
+        [SerializeField] public string guid = String.Empty;
+        [SerializeField] public SVector position = new SVector(Vector3.zero);
+        [SerializeField] public SVector rotation = new SVector(Vector3.zero);
     }
 
     [Serializable]

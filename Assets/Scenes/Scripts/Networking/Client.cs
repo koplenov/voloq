@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Specialized;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -12,6 +13,7 @@ using Utils;
 public class Client : Player
 {
     public static Client Instance;
+    public static bool IsServer;
 
     public GameObject server;
     public Hands hands;
@@ -35,11 +37,53 @@ public class Client : Player
     void FixedUpdate()
     {
         FixedUpdateUdp();
+        FixedUpdateSyncGroup();
+    }
+
+    private SyncTransformData[] _cachedSyncGroup = new SyncTransformData[0];
+    private void FixedUpdateSyncGroup()
+    {
+        if (_cachedSyncGroup.Length != Client.Instance.SyncObjects.Count)
+        {
+            _cachedSyncGroup = new SyncTransformData[Client.Instance.SyncObjects.Count];
+        }
+
+        int i = 0;
+        foreach (DictionaryEntry o in Client.Instance.SyncObjects)
+        {
+            _cachedSyncGroup[i] = new SyncTransformData(o.Value as NetworkBehaviour);
+            i++;
+        }
+
+        byte[] outputBytes = Data.ObjectToByteArray(_cachedSyncGroup); // the most important bytes)0
+        byte[] outputValidBytes = Packer.CombinePacket(ChanelID.SyncGroup, outputBytes);
+        SendUdpData(outputValidBytes);
     }
 
     private void Update()
     {
         UpdateUdp();
+        ApplyFixedUpdateSyncGroup();
+    }
+
+    private void ApplyFixedUpdateSyncGroup()
+    {
+        lock (SyncObjects)
+        {
+            if (SyncObjects.Count == 0)
+                return;
+
+            foreach (SyncTransformData syncTransformData in Client.Instance._cachedSyncGroup)
+            {
+                try
+                {
+                    (SyncObjects[syncTransformData.guid] as NetworkBehaviour).UpdateTransform(syncTransformData);
+                }
+                catch (Exception e)
+                {
+                }
+            }
+        }
     }
 
     private void OnApplicationQuit()
@@ -59,12 +103,14 @@ public class Client : Player
 
         if (PlayerPrefs.GetInt("isServer", 1) == 1)
         {
+            Client.IsServer = true;
             server.SetActive(true);
             _remoteAddr = new IPEndPoint(IPAddress.Parse("127.0.0.1"), NewServer.Port);
             Debug.Log("UDP Client-Server mode");
         }
         else
         {
+            Client.IsServer = false;
             server.SetActive(false);
             _remoteAddr = new IPEndPoint(IPAddress.Parse(prefIp), NewServer.Port);
             Debug.Log("UDP Client only mode");
@@ -123,6 +169,16 @@ public class Client : Player
                                 continue;
                             playerTable[np.nick] = np;
                         }
+                    }
+
+                    break;
+                
+                case ChanelID.SyncGroup:
+
+                    SyncTransformData[] syncObjects = Data.ByteArrayToObject(packet.data) as SyncTransformData[];
+
+                    lock (SyncObjects)
+                    {
                     }
 
                     break;
@@ -304,6 +360,9 @@ public class Client : Player
     private readonly Hashtable initedPlayers = new Hashtable();
     private readonly Hashtable dataPlayers = new Hashtable();
 
+    // Hachtable
+    public readonly Hashtable SyncObjects = new Hashtable();
+    
     private void UpdateUdp()
     {
         lock (playerTable)
