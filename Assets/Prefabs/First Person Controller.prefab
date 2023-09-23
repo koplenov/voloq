@@ -16284,7 +16284,7 @@ GameObject:
   - component: {fileID: 2020483584571585176}
   - component: {fileID: 2219453669479855428}
   - component: {fileID: 2801655817989676179}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: First Person Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17938,7 +17938,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heathBar: {fileID: 8690480548329553594}
-  selfstate: {fileID: 1935443786}
 --- !u!1 &6797415311970379809
 GameObject:
   m_ObjectHideFlags: 0

@@ -4723,6 +4723,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: First Person Controller (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2670626548256207666, guid: f5d9dd43293ba204ea8a90b4df65ad31, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5957892145516778975, guid: f5d9dd43293ba204ea8a90b4df65ad31, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
