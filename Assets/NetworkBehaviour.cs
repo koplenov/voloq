@@ -9,12 +9,11 @@ public class NetworkBehaviour : MonoBehaviour
 
     private void Start()
     {
-        Client.Instance.SyncObjects[gameObject] = this;
+        Client.Instance.SyncObjects[guid] = this;
     }
 
     public void UpdateTransform(SyncTransformData syncTransformData)
     {
-        Debug.Log(syncTransformData.Position);
         transform.position = syncTransformData.Position;
         transform.rotation = Quaternion.Euler(syncTransformData.Rotation);
     }

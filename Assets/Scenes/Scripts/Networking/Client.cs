@@ -40,7 +40,7 @@ public class Client : Player
         FixedUpdateSyncGroup();
     }
 
-    private SyncTransformData[] _cachedSyncGroup = new SyncTransformData[0];
+    private SyncTransformData[] _cachedSyncGroup = Array.Empty<SyncTransformData>();
     private void FixedUpdateSyncGroup()
     {
         if (_cachedSyncGroup.Length != Client.Instance.SyncObjects.Count)
@@ -70,9 +70,6 @@ public class Client : Player
     {
         lock (SyncObjects)
         {
-            if (SyncObjects.Count == 0)
-                return;
-
             foreach (SyncTransformData syncTransformData in Client.Instance._cachedSyncGroup)
             {
                 try
@@ -81,6 +78,7 @@ public class Client : Player
                 }
                 catch (Exception e)
                 {
+                    Debug.Log(e);
                 }
             }
         }
@@ -174,14 +172,7 @@ public class Client : Player
                     break;
                 
                 case ChanelID.SyncGroup:
-
-                    SyncTransformData[] syncObjects = Data.ByteArrayToObject(packet.data) as SyncTransformData[];
-
-                    lock (_cachedSyncGroup)
-                    {
-                        _cachedSyncGroup = syncObjects;
-                    }
-
+                     _cachedSyncGroup = Data.ByteArrayToObject(packet.data) as SyncTransformData[];
                     break;
                 case ChanelID.AnimationData:
 
@@ -189,19 +180,22 @@ public class Client : Player
 
                     if (animationData.nick != Client.nick)
                     {
-                        try
-                        {
+                        
+
                             MainThreadBridge.DoInMainThread(() =>
                             {
+                                try
+                                {
                                 lock (playerTable)
                                 {
                                     ((NetPlayerData)dataPlayers[animationData.nick]).UpdateAnimation(animationData);
                                 }
+                                }
+                                catch (Exception e)
+                                {
+                                }
                             });
-                        }
-                        catch (Exception e)
-                        {
-                        }
+                        
                     }
 
                     break;
