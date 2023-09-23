@@ -23,6 +23,9 @@ public class MainThreadBridge : MonoBehaviour
     
     public static void DoInMainThread(Action action)
     {
-        Instance.eventsToRaise.Enqueue(action);  
+        lock (Instance.eventsToRaise)
+        {
+            Instance.eventsToRaise.Enqueue(action);  
+        }
     }
 }
