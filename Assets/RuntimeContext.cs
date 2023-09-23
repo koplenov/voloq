@@ -3,11 +3,17 @@ using UnityEngine;
 
 public class RuntimeContext : Singleton<RuntimeContext>
 {
+    public CardShoot сardShoot;
+
+    protected override void Init()
+    {
+        сardShoot = FindObjectOfType<CardShoot>();
+    }
+    
     public void CastSpell(CastSpellData castSpellData)
     {
-        Debug.Log(castSpellData);
-        Debug.Log(castSpellData.nick);
-        Debug.Log(castSpellData.position);
-        Debug.Log(castSpellData.direction);
+        var newCard = сardShoot.CreateShootCard();
+        newCard.transform.forward = castSpellData.Position;
+        newCard.Shoot(castSpellData.Direction);
     }
 }

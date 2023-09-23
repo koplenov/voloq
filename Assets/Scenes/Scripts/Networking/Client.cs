@@ -208,6 +208,7 @@ public class Client : Player
                     {
                         try
                         {
+                            Debug.Log(castSpellData);
                             RuntimeContext.Instance.CastSpell(castSpellData);
                         }
                         catch (Exception e)
