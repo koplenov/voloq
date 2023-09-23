@@ -68,18 +68,15 @@ public class Client : Player
 
     private void ApplyFixedUpdateSyncGroup()
     {
-        lock (SyncObjects)
+        foreach (SyncTransformData syncTransformData in Client.Instance._cachedSyncGroup)
         {
-            foreach (SyncTransformData syncTransformData in Client.Instance._cachedSyncGroup)
+            try
             {
-                try
-                {
-                    (SyncObjects[syncTransformData.guid] as NetworkBehaviour).UpdateTransform(syncTransformData);
-                }
-                catch (Exception e)
-                {
-                    Debug.Log(e);
-                }
+                (SyncObjects[syncTransformData.guid] as NetworkBehaviour).UpdateTransform(syncTransformData);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
             }
         }
     }
