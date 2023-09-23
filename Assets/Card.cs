@@ -47,7 +47,13 @@ public abstract class Card : MonoBehaviour
         {
             if (hit.collider)
             {
-                Debug.LogError(hit.collider.name);
+                if (hit.collider.CompareTag("NetPlayer"))
+                {
+                    NetPlayerData netData = hit.collider.GetComponent<NetPlayerData>();
+                    GameUtils.SendDamage(Client.nick,netData.nick,(cardData.damage));
+                    netData.botState.ApplyDamage(cardData.damage);
+                    
+                }
             }
         }
     }
@@ -55,20 +61,6 @@ public abstract class Card : MonoBehaviour
     private void LateUpdate()
     {
         lastFramePosition = transform.position;
-    }
-  
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("NetPlayer"))
-        {
-            NetPlayerData netData = other.GetComponent<NetPlayerData>();
-            GameUtils.SendDamage(Client.nick,netData.nick,(cardData.damage));
-            netData.botState.ApplyDamage(cardData.damage);
-           
-        }
-        print(other.name);
-        
     }
 }
 [Serializable]
