@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     public KeyCode rightRunKey = KeyCode.D;
     public KeyCode speedKey = KeyCode.LeftShift;
 
+    private bool isRunning = false;
     GroundCheck groundCheck;
 
     void Awake()
@@ -38,34 +39,48 @@ public class Movement : MonoBehaviour
         walking = canRun && (Input.GetKey(forwardRunKey) || Input.GetKey(backRunKey) || Input.GetKey(leftRunKey) ||
                              Input.GetKey(rightRunKey));
         
-        sakuraAnimator.SetInteger("animation", walking ? 10 :1);
+       
         
         if (walking)
         {
-            targetMovingSpeed = Input.GetKey(speedKey) ? runSpeed : speed;
+            isRunning = Input.GetKey(speedKey);
+            if (isRunning)
+            {
+                targetMovingSpeed = runSpeed;
+            }
+            else
+            {
+                targetMovingSpeed = speed;
+            }
             if (Input.GetKey(forwardRunKey))
             {
                 move += Vector3.forward * targetMovingSpeed;
+                sakuraAnimator.SetInteger("animation", isRunning? 43 : 10);
+                
             }
             if (Input.GetKey(backRunKey))
             {
                 move += Vector3.back * targetMovingSpeed;
+                sakuraAnimator.SetInteger("animation", isRunning? 45 : 41);
             }
 
             if (Input.GetKey(leftRunKey))
             {
                 move += Vector3.left * targetMovingSpeed;
+                sakuraAnimator.SetInteger("animation", isRunning? 42 :11);
             }
 
             if (Input.GetKey(rightRunKey))
             {
                 move += Vector3.right * targetMovingSpeed;
+                sakuraAnimator.SetInteger("animation", isRunning?44:12);
             }
             
             rigidbody.velocity = transform.rotation * new Vector3(move.x, rigidbody.velocity.y, move.z);
         }
         else
         {
+            sakuraAnimator.SetInteger("animation", 1);
             if (groundCheck.isGrounded == true) {rigidbody.velocity *= 0.9f;}
          
         }

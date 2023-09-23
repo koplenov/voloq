@@ -129,41 +129,6 @@ public class Hands : MonoBehaviour
     
     #region GUI
 
-    void OnGUI()
-    {
-        float
-            Size_Whith = 10, //ширина блока
-            Size_Heigh = 10, //высота Centr_Box_Heigh
-            //центр блока
-            Centr_Box_Whith = Size_Whith / 2, //центр блока по ширине
-            Centr_Box_Heigh = Size_Heigh / 2, //центр блока по высоте
-            //получим центр окна
-            Screen_Whith_centr = Screen.width / 2,
-            Screen_Heigh_centr = Screen.height / 2,
-            //получаем точку начала рисования блока от центра экрана  отнимаем центр блока
-            Position_box_Whith = Screen_Whith_centr - Centr_Box_Whith,
-            Position_box_Heigh = Screen_Heigh_centr - Centr_Box_Heigh;
-
-        /*позиция блока*/
-        Vector2 Box_position = new Vector2(Position_box_Whith, Position_box_Heigh);
-        /*ширина блока*/
-        Vector2 Box_size = new Vector2(Size_Whith, Size_Heigh);
-        /*задаем прямоугольную область*/
-        Rect Box_Rect = new Rect(Box_position, Box_size);
-        //рисуем блок в центре экрана
-        GUI.Box(Box_Rect, "+");
-        
-        DrawAmmo();
-    }
-
-    void DrawAmmo()
-    {
-        // ammo
-        GUI.Box(new Rect(Screen.width-100, Screen.height-40,100,40), $"{curentWeapon.name}\n{curentWeapon.currentAmmo}/{curentWeapon.ammo}");
-        
-        // client info
-        GUI.Label(new Rect(0, 0, 100, 40), $"nick: {Client.nick}");
-    }
-
+   
     #endregion
 }

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: eyebase_Sakura
-  m_Shader: {fileID: 4800000, guid: ffd20e973934da9a4af5bb06586b8c98, type: 3}
+  m_Shader: {fileID: 4800000, guid: ea10d9c85c5db7d40815e2aeffef027e, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _EMISSION
