@@ -2,8 +2,6 @@
 
 public class Jump : MonoBehaviour
 {
-    public Animator sakuraAnimator;
-    
     new Rigidbody rigidbody;
     public float jumpStrength = 2;
     public event System.Action Jumped;
@@ -11,7 +9,7 @@ public class Jump : MonoBehaviour
     [SerializeField, Tooltip("Prevents jumping when the transform is in mid-air.")]
     GroundCheck groundCheck;
 
-
+    
     void Reset()
     {
         // Try to get groundCheck.
