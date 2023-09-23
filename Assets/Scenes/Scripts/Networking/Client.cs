@@ -16,7 +16,6 @@ public class Client : Player
     public static bool IsServer;
 
     public GameObject server;
-    public Hands hands;
 
     private Thread udpClientThread;
     
@@ -233,7 +232,6 @@ public class Client : Player
                 case ChanelID.SpawnDecal:
 
                     SpawnDecal spawnDecal = (SpawnDecal) Data.ByteArrayToObject(packet.data);
-                    hands.SpawnDecal(spawnDecal);
 
                     break;
                 case ChanelID.Damage:
