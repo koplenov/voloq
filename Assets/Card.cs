@@ -3,11 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using Unity.Mathematics;
 using UnityEngine.PlayerLoop;
-using UnityEngine.ProBuilder.Shapes;
 using Utils;
-using Sprite = UnityEngine.Sprite;
 
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Card : MonoBehaviour
@@ -18,6 +15,10 @@ public abstract class Card : MonoBehaviour
     [SerializeField] protected Rigidbody rigidBody;
     Vector3 lastFramePosition = Vector3.zero;
     [SerializeField] private LayerMask enemyLayerMask;
+    private void OnEnable()
+    {
+        lastFramePosition = transform.position;
+    }
 
     public virtual void Spell()
     {
@@ -39,27 +40,22 @@ public abstract class Card : MonoBehaviour
         rigidBody.AddForce(targetDirection * force,ForceMode.Impulse);
     }
 
-    private void FixedUpdate()
+    private void OnTriggerEnter(Collider other)
     {
-        RaycastHit hit;
-        if (Physics.Raycast(new Ray(transform.position, lastFramePosition),out hit,1000f,enemyLayerMask))
+        if (other.CompareTag("NetPlayer"))
         {
-            if (hit.collider)
-            {
-                if (hit.collider.CompareTag("NetPlayer"))
-                {
-                    NetPlayerData netData = hit.collider.GetComponent<NetPlayerData>();
-                    Debug.Log("Попал в " + netData.nick);
-                    GameUtils.SendDamage(Client.nick,netData.nick,cardData.damage);
-                    netData.botState.ApplyDamage(cardData.damage);
+            NetPlayerData netData = other.GetComponent<NetPlayerData>();
+            GameUtils.SendDamage(Client.nick,netData.nick,(cardData.damage));
+            netData.botState.ApplyDamage(cardData.damage);
                     
-                }
-            }
         }
+    }
+
+    private void LateUpdate()
+    {
         lastFramePosition = transform.position;
     }
 }
-
 [Serializable]
 public struct CardData
 {
