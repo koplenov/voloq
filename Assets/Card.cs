@@ -14,7 +14,7 @@ public abstract class Card : MonoBehaviour
     [SerializeField] protected CardData cardData;
     [SerializeField] protected Rigidbody rigidBody;
     Vector3 lastFramePosition = Vector3.zero;
-
+    [SerializeField] private LayerMask enemyLayerMask;
     private void OnEnable()
     {
         lastFramePosition = transform.position;
@@ -43,7 +43,7 @@ public abstract class Card : MonoBehaviour
     private void FixedUpdate()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, lastFramePosition,out hit))
+        if (Physics.Raycast(new Ray(transform.position, lastFramePosition),out hit,1000f,enemyLayerMask))
         {
             if (hit.collider)
             {
