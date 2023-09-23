@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class HealthView : MonoBehaviour
 {
     [SerializeField] private Slider heathBar;
-    [SerializeField] private Selfstate selfstate;
 
     private void Awake()
     {
@@ -17,6 +16,6 @@ public class HealthView : MonoBehaviour
 
     private void Update()
     {
-        heathBar.value = selfstate.hp;
+        heathBar.value = Client.Instance.hp;
     }
 }
