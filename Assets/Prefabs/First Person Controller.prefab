@@ -16526,12 +16526,12 @@ MonoBehaviour:
   m_margin: {x: 8.899595, y: 2.46456, z: 8.697999, w: 1.7579389}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  _SortingLayer: 0
-  _SortingLayerID: 0
-  _SortingOrder: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 5723316549727457257}
   m_maskType: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
 --- !u!1 &819132246327495136
 GameObject:
   m_ObjectHideFlags: 0
@@ -17303,7 +17303,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 38.04
+  field of view: 33.432
   orthographic: 0
   orthographic size: 5
   m_Depth: 10
@@ -17364,7 +17364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780f90e951d635f439326ea715cd97e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultFOV: 43.8
+  defaultFOV: 38.04
   maxZoomFOV: 15
   currentZoom: 0.2
   sensitivity: 1
@@ -17659,10 +17659,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sakuraAnimator: {fileID: 170301106629466562}
   move: {x: 0, y: 0, z: 0}
-  speed: 4
+  speed: 7
   targetMovingSpeed: 0
   canRun: 1
-  runSpeed: 8
+  runSpeed: 12
   forwardRunKey: 119
   backRunKey: 115
   leftRunKey: 97
