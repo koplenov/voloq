@@ -17,7 +17,10 @@ ModelImporter:
     removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Errors found in
+      old project file will be treated as a warnings. Configuration mis-match will
+      be ignored, but current Configuration needs to be fixed:\n\tTransform 'Armature'
+      not found in HumanDescription.\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
