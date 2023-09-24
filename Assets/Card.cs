@@ -9,7 +9,6 @@ using Utils;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Card : MonoBehaviour
 {
-    [SerializeField] protected Spell spell;
     [SerializeField] private Transform cardMesh;
     [SerializeField] private float force;
     [SerializeField] protected CardData cardData;
@@ -49,13 +48,17 @@ public abstract class Card : MonoBehaviour
             NetPlayerData netData = other.GetComponent<NetPlayerData>();
             GameUtils.SendDamage(Client.nick,netData.nick,(cardData.damage));
             netData.botState.ApplyDamage(cardData.damage);
-                    
         }
     }
 
     private void LateUpdate()
     {
         lastFramePosition = transform.position;
+    }
+    private IEnumerator Start()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(this.gameObject);
     }
 }
 
