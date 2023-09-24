@@ -1098,7 +1098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u0441ardShoot": {fileID: 0}
-  enemyCard: {fileID: 0}
+  enemyCard: {fileID: 5435528336073245249, guid: 15f7b9eb58cae4a68a10b406653f1335, type: 3}
 --- !u!1 &1081257516
 GameObject:
   m_ObjectHideFlags: 0
