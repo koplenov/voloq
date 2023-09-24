@@ -18,6 +18,7 @@ public class CardShoot : MonoBehaviour
     [SerializeField] private Mana mana;
     [SerializeField] private Card prefab;
     [SerializeField] private Transform spawnPoint;
+    
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
@@ -26,6 +27,7 @@ public class CardShoot : MonoBehaviour
             newCard.transform.forward = spawnPoint.transform.forward;
             newCard.Shoot(camera.transform.forward);
             GameUtils.SendCastSpell(Client.nick,"spell spell", camera.transform.forward, newCard.transform.position);
+            handsCards.ReloadAnimation();
         }
     }
 
