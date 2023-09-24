@@ -33,9 +33,9 @@ namespace Utils
             Network.SendUdpData(packetBytes);
         }
         
-        public static void SendCastSpell(string nick, string spellName, Vector3 direction, Vector3 position)
+        public static void SendCastSpell(string nick, string spellName, Vector3 direction, Vector3 position, Vector3 rotation = new Vector3())
         {
-            CastSpellData netPlayer = new CastSpellData(nick, spellName, direction, position);
+            CastSpellData netPlayer = new CastSpellData(nick, spellName, direction, position, rotation);
             
             // content bytes
             byte[] testByted = Data.ObjectToByteArray(netPlayer);
