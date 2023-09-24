@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SimpleCard : Card
@@ -8,5 +7,11 @@ public class SimpleCard : Card
     {
      base.Spell();
      Debug.Log("Ебануло нихуево");
+    }
+
+    private IEnumerator Start()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(this.gameObject);
     }
 }
