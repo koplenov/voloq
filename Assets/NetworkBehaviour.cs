@@ -1,6 +1,10 @@
 using System;
 using Networking;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 using UnityEngine;
 
 public class NetworkBehaviour : MonoBehaviour
@@ -19,6 +23,7 @@ public class NetworkBehaviour : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(NetworkBehaviour))]
 [CanEditMultipleObjects]
 public class SyncPositionEditor : Editor 
@@ -41,3 +46,4 @@ public class SyncPositionEditor : Editor
         }
     }
 }
+#endif

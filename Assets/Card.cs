@@ -43,9 +43,6 @@ public abstract class Card : MonoBehaviour
             GameUtils.SendDamage(Client.nick,netData.nick,(cardData.damage));
             netData.botState.ApplyDamage(cardData.damage);
         }
-        this.Spell();
-        Debug.Log(other.name);
-        Destroy(this.gameObject);
     }
 
     private IEnumerator Start()
