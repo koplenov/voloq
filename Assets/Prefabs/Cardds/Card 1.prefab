@@ -92,7 +92,7 @@ MonoBehaviour:
   rigidBody: {fileID: 965464605340597571}
   enemyLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   taran: {fileID: 4478919480730701911}
 --- !u!114 &4478919480730701911
 MonoBehaviour:
