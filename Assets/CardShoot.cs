@@ -34,6 +34,11 @@ public class CardShoot : MonoBehaviour
         return Instantiate(prefab, spawnPoint.position, Quaternion.identity);
     }
     
+    public Card CreateShootCard(Card _prefab)
+    {
+        return Instantiate(_prefab, spawnPoint.position, Quaternion.identity);
+    }
+    
     private Vector3 GetCardEndPoint()
     {
         return Vector3.zero;
