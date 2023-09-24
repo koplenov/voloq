@@ -13,7 +13,7 @@ public class RuntimeContext : Singleton<RuntimeContext>
     public void CastSpell(CastSpellData castSpellData)
     {
         var newCard = сardShoot.CreateShootCard();
-        newCard.transform.forward = castSpellData.Position;
+        newCard.transform.position = castSpellData.Position;
         newCard.Shoot(castSpellData.Direction);
     }
 }

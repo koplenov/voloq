@@ -373,7 +373,7 @@ public class Client : Player
 
     private readonly Hashtable playerTable = new Hashtable();
     private readonly Hashtable initedPlayers = new Hashtable();
-    private readonly Hashtable dataPlayers = new Hashtable();
+    public readonly Hashtable dataPlayers = new Hashtable();
 
     // Hachtable
     public readonly Hashtable SyncObjects = new Hashtable();

@@ -25,7 +25,7 @@ public class CardShoot : MonoBehaviour
             Card newCard = CreateShootCard();
             newCard.transform.forward = spawnPoint.transform.forward;
             newCard.Shoot(camera.transform.forward);
-            GameUtils.SendCastSpell(Client.nick, newCard.name, camera.transform.forward, transform.position);
+            GameUtils.SendCastSpell(Client.nick,"spell spell", camera.transform.forward, newCard.transform.position);
         }
     }
 
