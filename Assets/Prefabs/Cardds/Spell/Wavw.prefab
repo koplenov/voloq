@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2894245086373793987}
   - component: {fileID: 7515342215184008500}
   - component: {fileID: 6569705625643629862}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wavw
   m_TagString: Untagged
   m_Icon: {fileID: 0}

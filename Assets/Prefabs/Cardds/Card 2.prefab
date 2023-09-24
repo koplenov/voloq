@@ -79,19 +79,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardMesh: {fileID: 8155186231477951428}
-  force: 100
+  force: 50
   cardData:
     damage: 0
     heal: 0
-    cardId: 
-    manaCost: 0
+    cardId: pulseWave
+    manaCost: 2
     description: 
     name: 
     image: {fileID: 0}
   rigidBody: {fileID: 965464605340597571}
   enemyLayerMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 513
   pulseWaveSpell: {fileID: 8014788959502800831}
 --- !u!114 &8014788959502800831
 MonoBehaviour:

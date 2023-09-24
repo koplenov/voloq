@@ -13,17 +13,11 @@ public abstract class Card : MonoBehaviour
     [SerializeField] private float force;
     [SerializeField] protected CardData cardData;
     [SerializeField] protected Rigidbody rigidBody;
-    Vector3 lastFramePosition = Vector3.zero;
     [SerializeField] private LayerMask enemyLayerMask;
-    
-    private void OnEnable()
-    {
-        lastFramePosition = transform.position;
-    }
 
     public virtual void Spell()
     {
-        GameUtils.SendCastSpell(Client.nick,cardData.cardId, Vector3.forward, transform.position);
+        GameUtils.SendCastSpell(Client.nick, cardData.cardId, Vector3.forward, transform.position);
     }
 
     public CardData GetCardData()
@@ -41,7 +35,7 @@ public abstract class Card : MonoBehaviour
         rigidBody.AddForce(targetDirection * force,ForceMode.Impulse);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("NetPlayer"))
         {
@@ -49,12 +43,11 @@ public abstract class Card : MonoBehaviour
             GameUtils.SendDamage(Client.nick,netData.nick,(cardData.damage));
             netData.botState.ApplyDamage(cardData.damage);
         }
+        this.Spell();
+        Debug.Log(other.name);
+        Destroy(this.gameObject);
     }
 
-    private void LateUpdate()
-    {
-        lastFramePosition = transform.position;
-    }
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(5f);

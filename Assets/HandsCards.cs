@@ -6,7 +6,7 @@ using UnityEngine;
 public class HandsCards : MonoBehaviour
 {
     [SerializeField] private Mana mana; 
-    // [SerializeField] private int maxHand = 5;
+    [SerializeField] private int maxHand = 5;
     [SerializeField] private List<Card> deka = new List<Card>();
     [SerializeField] private GameObject[] dekaCards;
     [SerializeField] private Transform[] dekaCardsPositionsActivate;

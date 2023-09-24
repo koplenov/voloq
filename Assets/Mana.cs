@@ -4,27 +4,43 @@ using UnityEngine;
 
 public class Mana : MonoBehaviour
 {
-  [SerializeField] private int allCount;
+  [SerializeField] private int count;
   [SerializeField] private int maxCount;
+  [SerializeField] private float time = 2f;
 
+  public int MaxCount => maxCount;
+  public int Count => count;
+  IEnumerator CD()
+  {
+    while (count < maxCount)
+    {
+      yield return new WaitForSeconds(time);
+      Add(1);
+    }
+  }
+  
   public void Add(int count)
   {
-    allCount += count;
+    this.count += count;
     
-    if (allCount > maxCount)
+    if (this.count > maxCount)
     {
-      allCount = maxCount;
+      this.count = maxCount;
     }
   }
 
   public bool Use(int count)
   {
-    if (count >= allCount)
+    if (count >= this.count)
     {
-      allCount -= count;
+      this.count -= count;
+      StartCoroutine(CD());
       return true;
     }
-
-    return false;
+    else
+    {
+      StartCoroutine(CD());
+      return false;
+    }
   }
 }

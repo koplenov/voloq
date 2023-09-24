@@ -15,7 +15,7 @@ public class TaranSpell : Spell
     
     public override void Cost()
     {
-        activeTaran.transform.DOMove(activeTaran.transform.forward * 5, speed).SetSpeedBased().SetDelay(delay);
+        activeTaran.transform.DOMove(activeTaran.transform.forward * 15, speed).SetSpeedBased().SetDelay(delay).OnComplete(()=>{Destroy(this.gameObject);});
     }
 
     private GameObject CreateTaranObject(Vector3 spawnPosition)
