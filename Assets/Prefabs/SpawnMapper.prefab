@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2128329193597725817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2128329193597725798}
+  - component: {fileID: 2128329193597725796}
+  - component: {fileID: 2128329193597725797}
+  m_Layer: 0
+  m_Name: SpawnMapper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2128329193597725798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128329193597725817}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2128329193597725796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128329193597725817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e970d6a98ca684aa4ac375f8dfda77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPosition: {x: 0, y: 0}
+  sizeMap: {x: 0, y: 0}
+  timerEvent: 0
+  meteor: {fileID: 919132149155446097, guid: c5c37a00f0b648cd1aea63140d30310a, type: 3}
+--- !u!114 &2128329193597725797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128329193597725817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e202bd0cf815a494ab6b7f39788f271b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPosition: {x: 0, y: 0}
+  sizeMap: {x: 100, y: 100}
+  sizeChank: 4
+  prefabChanks:
+  - {fileID: 4297423877095835748, guid: 457a51b6db4d79540ad60545183ff676, type: 3}
+  - {fileID: 1084576562882657096, guid: 323e6b0d60bea384bb1379c52ea5f382, type: 3}
+  - {fileID: 5056583138598936922, guid: f5b6e417b79697a41be99a34492dbda7, type: 3}
+  - {fileID: 8283864853344946030, guid: fbadd9aca64e7674fae768ff3388012f, type: 3}
+  - {fileID: 4899614862549948910, guid: 39d25eb651ef69e439f1f07be99a1671, type: 3}
+  - {fileID: 2500880579027484691, guid: 22c7533557282f44ea31e754e03481f8, type: 3}
+  - {fileID: 4924806045240464338, guid: f4fbca90c36b5f44db12e4a8256e157e, type: 3}
+  - {fileID: 8955715999640165718, guid: 375705bd11d10d14aa63fd98a4cbfc9b, type: 3}
+  - {fileID: 5646431477113329101, guid: 80ff2b8dce6645f418a5a89833669d9b, type: 3}
+  - {fileID: 3518769345236286732, guid: 801d206c44b104a43a24ee6b39cd2fe4, type: 3}
+  jumpForce: 100
+  platform: {fileID: 4899614862549948910, guid: 39d25eb651ef69e439f1f07be99a1671, type: 3}
+  spawner: {fileID: 4899614862549948910, guid: 39d25eb651ef69e439f1f07be99a1671, type: 3}
