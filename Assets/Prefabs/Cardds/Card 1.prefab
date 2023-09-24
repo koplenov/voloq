@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8159489581111871673}
+  - component: {fileID: 2788831595577715454}
   - component: {fileID: 965464605340597571}
   - component: {fileID: 8598139648132019590}
-  - component: {fileID: 9202831360608961824}
-  - component: {fileID: 4478919480730701911}
   m_Layer: 0
   m_Name: Card 1
   m_TagString: Untagged
@@ -37,6 +36,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0.811, z: 0}
+--- !u!114 &2788831595577715454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8159489581111871672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5978777da81b446a70785d12a58192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardMesh: {fileID: 8155186231477951428}
+  force: 50
+  cardData:
+    damage: 20
+    heal: 0
+    cardId: 
+    manaCost: 1
+    description: "\u041F\u0440\u0438 \u043F\u043E\u043F\u0430\u0434\u0430\u043D\u0438\u0435,
+      \u0430\u0443\u0440\u0430 \u0441\u043D\u043E\u0441\u044F\u0449\u0430\u044F \u0432\u0441\u0435
+      \u0432 \u0440\u0430\u0434\u0438\u0443\u0441\u0435 3 \u043C\u0435\u0441\u0442\u0440\u043E\u0432"
+    name: "\u041F\u043E\u043B\u0443\u043C\u0435\u0441\u044F\u0446"
+    image: {fileID: 21300000, guid: 05cf04d13bd89804e8079ecb1104c98a, type: 3}
+  rigidBody: {fileID: 965464605340597571}
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 513
 --- !u!54 &965464605340597571
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -66,48 +93,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.15847649, y: 0.0057001114, z: 0.22880664}
   m_Center: {x: 0.00046744198, y: 0.00082993496, z: -0.0014188439}
---- !u!114 &9202831360608961824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8159489581111871672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da3210a1f3c2aea4b9a7f1af2af6dde6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardMesh: {fileID: 8155186231477951428}
-  force: 50
-  cardData:
-    damage: 20
-    heal: 0
-    cardId: taran
-    manaCost: 2
-    description: 
-    name: 
-    image: {fileID: 0}
-  rigidBody: {fileID: 965464605340597571}
-  enemyLayerMask:
-    serializedVersion: 2
-    m_Bits: 513
-  taran: {fileID: 4478919480730701911}
---- !u!114 &4478919480730701911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8159489581111871672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 343c67c08d4a7ce47bbcbb61f732f052, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skin: {fileID: 1961147951881102807, guid: 4d856ae3ae1438b46802801b030380fc, type: 3}
-  speed: 14
-  delay: 1
 --- !u!1001 &8159489581285214836
 PrefabInstance:
   m_ObjectHideFlags: 0

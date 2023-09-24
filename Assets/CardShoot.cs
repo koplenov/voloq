@@ -16,7 +16,6 @@ public class CardShoot : MonoBehaviour
     [SerializeField] private Camera camera;
     [SerializeField] private HandsCards handsCards;
     [SerializeField] private Mana mana;
-    [SerializeField] private Card prefab;
     [SerializeField] private Transform spawnPoint;
     
     private void Update()
@@ -33,7 +32,7 @@ public class CardShoot : MonoBehaviour
 
     public Card CreateShootCard()
     {
-        return Instantiate(prefab, spawnPoint.position, Quaternion.identity);
+        return Instantiate(CardsBundle.Instance.GetRandomCard(), spawnPoint.position, Quaternion.identity);
     }
     
     public Card CreateShootCard(Card _prefab)

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HandsCards : MonoBehaviour
 {
+    public static HandsCards instance;
     [SerializeField] private Mana mana; 
     [SerializeField] private int maxHand = 5;
     [SerializeField] private List<Card> deka = new List<Card>();
@@ -14,9 +15,19 @@ public class HandsCards : MonoBehaviour
     [SerializeField] private bool[] dekaCardsIsActive;
     [SerializeField] private Animator handsAnimator;
 
+    [SerializeField] private CardsBundle bundles;
+
+    public CardHandView cardInHand { private set; get; }
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         dekaCardsIsActive = new bool[dekaCards.Length];
+        
     }
 
     private void Update()
@@ -68,6 +79,8 @@ public class HandsCards : MonoBehaviour
         {
             if (i != i1) HideCardInHand(i1);
         }
+
+        cardInHand = dekaCards[i];
     }
 
     private void HideCardInHand(int i)
@@ -85,14 +98,6 @@ public class HandsCards : MonoBehaviour
             return true;
         }
         return false;
-    }
-
-    public void UseCard(Card card)
-    {
-        if (deka.Contains(card))
-        {
-            
-        }
     }
     
     public void RemoveCard(Card card)

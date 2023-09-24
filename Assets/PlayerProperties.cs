@@ -20,6 +20,6 @@ public class PlayerProperties : MonoBehaviour
     private void Update()
     {
         heathBar.value = Client.Instance.hp;
-        heathBar.value = mana.Count;
+        manaBar.value = mana.Count;
     }
 }
