@@ -38,7 +38,6 @@ public abstract class Card : MonoBehaviour
     public void Shoot(Vector3 targetDirection)
     {
         rigidBody.AddForce(targetDirection * force,ForceMode.Impulse);
-        GameUtils.SendCastSpell(Client.nick, cardData.name, targetDirection, transform.position);
     }
 
     private void OnTriggerEnter(Collider other)
