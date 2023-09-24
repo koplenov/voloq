@@ -116,12 +116,22 @@ namespace Networking
         public string spellName = String.Empty;
         public SVector direction = new SVector(Vector3.zero);
         public SVector position = new SVector(Vector3.zero);
+        public SVector rotation = new SVector(Vector3.zero);
         public CastSpellData(string nick, string spellName, Vector3 direction, Vector3 position)
         {
             this.nick = nick;
             this.spellName = spellName;
             this.Direction = direction;
             this.Position = position;
+        }
+        
+        public CastSpellData(string nick, string spellName, Vector3 direction, Vector3 position, Vector3 rotation)
+        {
+            this.nick = nick;
+            this.spellName = spellName;
+            this.Direction = direction;
+            this.Position = position;
+            this.Rotation = rotation;
         }
         
         public Vector3 Direction
@@ -143,6 +153,17 @@ namespace Networking
                 position.x = value.x;
                 position.y = value.y;
                 position.z = value.z;
+            }
+        }
+        
+        public Vector3 Rotation
+        {
+            get => rotation.Vector3;
+            set
+            {
+                rotation.x = value.x;
+                rotation.y = value.y;
+                rotation.z = value.z;
             }
         }
     }
