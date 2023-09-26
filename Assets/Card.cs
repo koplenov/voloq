@@ -18,6 +18,7 @@ public abstract class Card : MonoBehaviour
     public virtual void Spell()
     {
         GameUtils.SendCastSpell(Client.nick, cardData.cardId, Vector3.forward, transform.position);
+        
     }
 
     public CardData GetCardData()

@@ -23,15 +23,31 @@ public class HandsCards : MonoBehaviour
     {
         instance = this;
     }
+    
 
     private void Start()
     {
+        for (int i = 0; i < dekaCards.Length; i++)
+        {
+            dekaCards[i].SendConfig(CardsBundle.Instance.GetRandomCard().GetCardData());
+        }
         dekaCardsIsActive = new bool[dekaCards.Length];
         
     }
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            for (int i = 0; i < dekaCardsIsActive.Length; i++)
+            {
+                if (dekaCardsIsActive[i] == true)
+                {
+                    dekaCards[i].SendConfig(CardsBundle.Instance.GetRandomCard().GetCardData());
+                }
+            }
+        }
+        
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if(dekaCardsIsActive[0])
@@ -92,12 +108,12 @@ public class HandsCards : MonoBehaviour
     
     public bool AddCard(Card card)
     {
-        if (deka.Count < dekaCards.Length)
+        for (int i = 0; i < dekaCardsIsActive.Length; i++)
         {
-            deka.Add(card);
-            return true;
+            
         }
-        return false;
+
+        return true;
     }
     
     public void RemoveCard(Card card)

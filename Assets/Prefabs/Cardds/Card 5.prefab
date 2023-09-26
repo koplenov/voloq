@@ -57,7 +57,7 @@ MonoBehaviour:
     manaCost: 1
     description: 
     name: "\u0418\u0433\u0440\u0430\u043B\u044C\u043D\u0430\u044F \u043A\u0430\u0440\u0442\u0430"
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: c7bf45f0ef95bed4491c5809fc6bf484, type: 3}
   rigidBody: {fileID: 965464605340597571}
   enemyLayerMask:
     serializedVersion: 2
